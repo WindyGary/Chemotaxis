@@ -2,7 +2,7 @@ Bacteria[] colony;
 void setup()   
 {     
   size(500, 500);
-  colony = new Bacteria[200];
+  colony = new Bacteria[20];
   for (int i = 0; i < colony.length; i++) {
     colony[i] = new Bacteria(
       (int)(Math.random()*500), 
@@ -14,29 +14,31 @@ void setup()
 }   
 void draw()   
 {
-  
+
   background(125);
   for (int i = 0; i < colony.length; i++) {
     colony[i].show();
     colony[i].move();
   }
-  for (int i = 0; i < colony.length-1; i++){
-    if (dist(colony[i].myX, colony[i].myY, colony[i+1].myX, colony[i+1].myY) < 30){ // remove specificy of each bacteria
-      colony[i].myTotalColor = color(0,0,0);
-      colony[i+1].myTotalColor = color(0,0,0);
+  for (int i = 0; i < colony.length; i++) {
+    for (int j = 1; j < colony.length; j++) {
+      if (dist(colony[i].myX, colony[i].myY, colony[j].myX, colony[j].myY) < 30 && i != j) { // remove specificy of each bacteria
+        colony[i].myTotalColor = color(0, 0, 0);
+        colony[j].myTotalColor = color(0, 0, 0);
+      }
+    }
   }
-}
   if (mousePressed) {
-    for(int i = 0; i < colony.length; i++){
-      if (colony[i].myX > mouseX){
+    for (int i = 0; i < colony.length; i++) {
+      if (colony[i].myX > mouseX) {
         colony[i].myX-= 2;
-      } else if (colony[i].myX < mouseX){
+      } else if (colony[i].myX < mouseX) {
         colony[i].myX+= 2;
       }
-      
-      if (colony[i].myY > mouseY){
+
+      if (colony[i].myY > mouseY) {
         colony[i].myY-= 2;
-      } else if (colony[i].myY < mouseY){
+      } else if (colony[i].myY < mouseY) {
         colony[i].myY+= 2;
       }
     }
