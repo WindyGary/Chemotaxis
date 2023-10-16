@@ -21,7 +21,7 @@ void draw()
     colony[i].move();
   }
   for (int i = 0; i < colony.length; i++) {
-    for (int j = 1; j < colony.length; j++) {
+    for (int j = 0; j < colony.length; j++) {
       if (dist(colony[i].myX, colony[i].myY, colony[j].myX, colony[j].myY) < 30 && i != j) { // remove specificy of each bacteria
         colony[i].myTotalColor = color(0, 0, 0);
         colony[j].myTotalColor = color(0, 0, 0);
