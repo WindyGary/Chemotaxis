@@ -44,6 +44,8 @@ void draw()
     }
   }
 }
+
+
 class Bacteria
 {     
   int myX, myY, myColor1, myColor2, myColor3, myTotalColor;
@@ -66,4 +68,9 @@ class Bacteria
     myX += (Math.random()*3)-1;
     myY += (Math.random()*3)-1;
   }
+}
+void mouseReleased() {
+  System.out.println("hi");        //explode effect?
+  
+  
 }
