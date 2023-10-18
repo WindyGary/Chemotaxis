@@ -12,7 +12,7 @@ void setup()
 }   
 void draw()   
 {
-  background(125);
+  background(125,155,255);
   for (int i = 0; i < colony.length; i++) {
     colony[i].show();
     colony[i].move();
@@ -20,8 +20,8 @@ void draw()
   for (int i = 0; i < colony.length; i++) {
     for (int j = 0; j < colony.length; j++) {
       if (dist(colony[i].myX, colony[i].myY, colony[j].myX, colony[j].myY) < 15 && i != j) { // remove specificy of each bacteria
-        colony[i].myTotalColor = color(i*10,i*2,i*5);
-        colony[j].myTotalColor = color(j*10,j*2,j*5);
+        colony[i].myTotalColor = color(i*5+100,i*2,i*6);
+        colony[j].myTotalColor = color(j*5+100,j*2,j*6);
       }
             
       if (colony[i].myX > 600 || colony[i].myY > 600 || colony[i].myX < 0 || colony[i].myY < 0){
@@ -84,4 +84,4 @@ void mouseReleased() {
       colony[i].myY += (Math.random()*600)-300;
     }
   }
-}
+}`
