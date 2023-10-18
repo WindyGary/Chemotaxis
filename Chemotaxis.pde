@@ -2,7 +2,7 @@ Bacteria[] colony;
 void setup()   
 {     
   size(500, 500);
-  colony = new Bacteria[20];
+  colony = new Bacteria[100];
   for (int i = 0; i < colony.length; i++) {
     colony[i] = new Bacteria(
       (int)(Math.random()*500), 
@@ -14,7 +14,6 @@ void setup()
 }   
 void draw()   
 {
-
   background(125);
   for (int i = 0; i < colony.length; i++) {
     colony[i].show();
@@ -22,24 +21,29 @@ void draw()
   }
   for (int i = 0; i < colony.length; i++) {
     for (int j = 0; j < colony.length; j++) {
-      if (dist(colony[i].myX, colony[i].myY, colony[j].myX, colony[j].myY) < 30 && i != j) { // remove specificy of each bacteria
-        colony[i].myTotalColor = color(0, 0, 0);
-        colony[j].myTotalColor = color(0, 0, 0);
+      if (dist(colony[i].myX, colony[i].myY, colony[j].myX, colony[j].myY) < 15 && i != j) { // remove specificy of each bacteria
+        colony[i].myTotalColor = color(i*10,i*2,i*5);
+        colony[j].myTotalColor = color(j*10,j*2,j*5);
       }
+            
+      if (colony[i].myX > 600 || colony[i].myY > 600 || colony[i].myX < 0 || colony[i].myY < 0){
+        colony[i].myX = 300 + (int)(Math.random()*300)-(int)(Math.random()*300);
+        colony[i].myY = 300 + (int)(Math.random()*300)-(int)(Math.random()*300);
     }
   }
+}
   if (mousePressed) {
     for (int i = 0; i < colony.length; i++) {
       if (colony[i].myX > mouseX) {
-        colony[i].myX-= 2;
+        colony[i].myX-= 5;
       } else if (colony[i].myX < mouseX) {
-        colony[i].myX+= 2;
+        colony[i].myX+= 5;
       }
 
       if (colony[i].myY > mouseY) {
-        colony[i].myY-= 2;
+        colony[i].myY-= 5;
       } else if (colony[i].myY < mouseY) {
-        colony[i].myY+= 2;
+        colony[i].myY+= 5;
       }
     }
   }
@@ -61,7 +65,7 @@ class Bacteria
   void show() {
     noStroke();
     fill(myTotalColor);
-    ellipse(myX, myY, 30, 30);
+    ellipse(myX, myY, 15, 15);
   }
 
   void move() {
@@ -69,8 +73,20 @@ class Bacteria
     myY += (Math.random()*3)-1;
   }
 }
+void mouseMoved() {
+  for (int i = 0; i < colony.length; i++) {
+    if (dist(colony[i].myX, colony[i].myY, mouseX, mouseY) < 32) {
+      colony[i].myX += (Math.random()*200)-100;
+      colony[i].myY += (Math.random()*200)-100;
+    }
+  }
+}
+
 void mouseReleased() {
-  System.out.println("hi");        //explode effect?
-  
-  
+  for (int i = 0; i < colony.length; i++) {
+    if (dist(colony[i].myX, colony[i].myY, mouseX, mouseY) < 32) {
+      colony[i].myX += (Math.random()*600)-300;
+      colony[i].myY += (Math.random()*600)-300;
+    }
+  }
 }
