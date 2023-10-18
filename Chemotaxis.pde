@@ -69,8 +69,8 @@ class Bacteria
   }
 
   void move() {
-    myX += (Math.random()*3)-2;
-    myY += (Math.random()*3)-2;
+    myX += (int)(Math.random()*3)-1;
+    myY += (int)(Math.random()*3)-1;
   }
 }
 void mouseMoved() {
