@@ -7,9 +7,7 @@ void setup()
     colony[i] = new Bacteria(
       (int)(Math.random()*500), 
       (int)(Math.random()*500), 
-      (int)(Math.random()*300), 
-      (int)(Math.random()*300), 
-      (int)(Math.random()*300));
+      (int)(Math.random()*255));
   }
 }   
 void draw()   
@@ -52,14 +50,11 @@ void draw()
 
 class Bacteria
 {     
-  int myX, myY, myColor1, myColor2, myColor3, myTotalColor;
-  Bacteria(int x, int y, int color1, int color2, int color3) {
+  int myX, myY, myTotalColor;
+  Bacteria(int x, int y, int totalColor) {          //constructor 
     myX = x;
     myY = y;
-    myColor1 = color1;
-    myColor2 = color2;
-    myColor3 = color3;
-    myTotalColor = color(myColor1, myColor2, myColor3);
+    myTotalColor = color(totalColor);
   }
 
   void show() {
