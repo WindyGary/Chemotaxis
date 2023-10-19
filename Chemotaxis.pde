@@ -5,8 +5,8 @@ void setup()
   colony = new Bacteria[120];
   for (int i = 0; i < colony.length; i++) {
     colony[i] = new Bacteria(
-      (int)(Math.random()*500), 
-      (int)(Math.random()*500), 
+      (int)(Math.random()*600), 
+      (int)(Math.random()*600), 
       (int)(Math.random()*255));
   }
 }   
