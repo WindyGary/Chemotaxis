@@ -2,7 +2,7 @@ Bacteria[] colony;
 void setup()   
 {     
   size(600, 600);
-  colony = new Bacteria[150];
+  colony = new Bacteria[120];
   for (int i = 0; i < colony.length; i++) {
     colony[i] = new Bacteria(
       (int)(Math.random()*600), 
@@ -19,12 +19,12 @@ void draw()
   }
   for (int i = 0; i < colony.length; i++) {
     for (int j = 0; j < colony.length; j++) {
-      if (dist(colony[i].myX, colony[i].myY, colony[j].myX, colony[j].myY) < 15 && i != j) { 
+      if (dist(colony[i].myX, colony[i].myY, colony[j].myX, colony[j].myY) < 15 && i != j) { // remove specificy of each bacteria
         colony[i].myTotalColor = color(i*5+100,i*2,i*6);
         colony[j].myTotalColor = color(j*5+100,j*2,j*6);
       }
             
-      if (colony[i].myX < 0 || colony[i].myY < 0 || colony[i].myX > 600 || colony[i].myY > 600){
+      if (colony[i].myX > 600 || colony[i].myY > 600 || colony[i].myX < 0 || colony[i].myY < 0){
         colony[i].myX = 300 + (int)(Math.random()*300)-(int)(Math.random()*300);
         colony[i].myY = 300 + (int)(Math.random()*300)-(int)(Math.random()*300);
     }
