@@ -80,8 +80,8 @@ void mouseMoved() {
 void mouseReleased() {
   for (int i = 0; i < colony.length; i++) {
     if (dist(colony[i].myX, colony[i].myY, mouseX, mouseY) < 32) {
-      colony[i].myX += (Math.random()*600)-300;
-      colony[i].myY += (Math.random()*600)-300;
+      colony[i].myX += (Math.random()*500)-(Math.random()*500);
+      colony[i].myY += (Math.random()*500)-(Math.random()*500);
     }
   }
 }
