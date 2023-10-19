@@ -24,7 +24,7 @@ void draw()
         colony[j].myTotalColor = color(j*5+100,j*2,j*6);
       }
             
-      if (colony[i].myX > 500 || colony[i].myY > 500 || colony[i].myX < 0 || colony[i].myY < 0){
+      if (colony[i].myX > 600 || colony[i].myY > 600 || colony[i].myX < 0 || colony[i].myY < 0){
         colony[i].myX = 300 + (int)(Math.random()*200)-(int)(Math.random()*200);
         colony[i].myY = 300 + (int)(Math.random()*200)-(int)(Math.random()*200);
     }
