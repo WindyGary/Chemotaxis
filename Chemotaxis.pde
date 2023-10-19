@@ -1,12 +1,12 @@
 Bacteria[] colony;
 void setup()   
 {     
-  size(600, 600);
+  size(500, 500);
   colony = new Bacteria[120];
   for (int i = 0; i < colony.length; i++) {
     colony[i] = new Bacteria(
-      (int)(Math.random()*600), 
-      (int)(Math.random()*600), 
+      (int)(Math.random()*500), 
+      (int)(Math.random()*500), 
       (int)(Math.random()*255));
   }
 }   
@@ -24,9 +24,9 @@ void draw()
         colony[j].myTotalColor = color(j*5+100,j*2,j*6);
       }
             
-      if (colony[i].myX > 600 || colony[i].myY > 600 || colony[i].myX < 0 || colony[i].myY < 0){
-        colony[i].myX = 300 + (int)(Math.random()*300)-(int)(Math.random()*300);
-        colony[i].myY = 300 + (int)(Math.random()*300)-(int)(Math.random()*300);
+      if (colony[i].myX > 500 || colony[i].myY > 500 || colony[i].myX < 0 || colony[i].myY < 0){
+        colony[i].myX = 300 + (int)(Math.random()*200)-(int)(Math.random()*200);
+        colony[i].myY = 300 + (int)(Math.random()*200)-(int)(Math.random()*200);
     }
   }
 }
@@ -71,8 +71,8 @@ class Bacteria
 void mouseMoved() {
   for (int i = 0; i < colony.length; i++) {
     if (dist(colony[i].myX, colony[i].myY, mouseX, mouseY) < 32) {
-      colony[i].myX += (Math.random()*200)-100;
-      colony[i].myY += (Math.random()*200)-100;
+      colony[i].myX += (Math.random()*50)-(Math.random()*50);
+      colony[i].myY += (Math.random()*50)-(Math.random()*50);
     }
   }
 }
